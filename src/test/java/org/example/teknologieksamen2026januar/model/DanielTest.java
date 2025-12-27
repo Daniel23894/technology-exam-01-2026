@@ -1,5 +1,6 @@
 package org.example.teknologieksamen2026januar.model;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,7 +20,7 @@ class DanielTest {
     }
 
     @Test
-        // @Disabled // Du kan bruge denne annotation til at deaktivere den, indtil du skal bruge den
+    @Disabled // bruges til at deaktivere den test , indtil den skal bruges igen
     void testSetAgeFailingExample() {
         // 1. Arrange: Opret objektet
         Daniel daniel = new Daniel("Daniel", 25);
