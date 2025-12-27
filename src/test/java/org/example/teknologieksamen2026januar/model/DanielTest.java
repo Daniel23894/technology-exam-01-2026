@@ -18,4 +18,18 @@ class DanielTest {
         assertEquals(forventetAlder, daniel.getAge(), "Alderen skal matche constructoren");
     }
 
+    @Test
+        // @Disabled // Du kan bruge denne annotation til at deaktivere den, indtil du skal bruge den
+    void testSetAgeFailingExample() {
+        // 1. Arrange: Opret objektet
+        Daniel daniel = new Daniel("Daniel", 25);
+
+        // 2. Act: Vi ændrer alderen til 30
+        int nyAlder = 30;
+        daniel.setAge(nyAlder);
+
+        // 3. Assert: Vi laver en bevidst fejl
+        // Vi påstår at alderen stadig skal være 25, selvom vi lige har ændret den.
+        assertEquals(25, daniel.getAge(), "FEJL-DEMO: Forventede den oprindelige alder (25), men setteren har ændret den til 30.");
+    }
 }
