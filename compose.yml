@@ -1,0 +1,26 @@
+# 4 skridt. definere images, port mapping, volumes, environment + netværk oprettes automatisk
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "127.0.0.1:8080:8080" # localhost MacBook, ikke netværket
+    volumes:
+      - ./data:/app/data
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=dev
+
+
+
+# example of multiple services
+#services:
+#  frontend:
+#    build: ./frontend
+#    ports:
+#      - "3000:3000"
+#
+#  backend:
+#    build: ./backend
+#    ports:
+#      - "8080:8080"
