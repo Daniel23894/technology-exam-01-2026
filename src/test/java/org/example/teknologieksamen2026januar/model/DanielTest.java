@@ -20,7 +20,7 @@ class DanielTest {
     }
 
     @Test
-    @Disabled // bruges til at deaktivere den test , indtil den skal bruges igen
+    @Disabled
     void testSetAgeFailingExample() {
         // 1. Arrange: Opret objektet
         Daniel daniel = new Daniel("Daniel", 25);
@@ -30,7 +30,6 @@ class DanielTest {
         daniel.setAge(nyAlder);
 
         // 3. Assert: Vi laver en bevidst fejl
-        // Vi påstår at alderen stadig skal være 25, selvom vi lige har ændret den.
         assertEquals(25, daniel.getAge(), "FEJL-DEMO: Forventede den oprindelige alder (25), men setteren har ændret den til 30.");
     }
 }
