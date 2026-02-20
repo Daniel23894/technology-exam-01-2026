@@ -2,7 +2,9 @@ name: Cloud Deployment Demo
 
 on:
   push:
-    branches: [ main ] # Trigger: Kører hver gang vi puster kode til main
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
   build-and-test:
