@@ -1,0 +1,33 @@
+name: Cloud Deployment Demo
+
+on:
+  push:
+    branches: [ main ] # Trigger: Kører hver gang vi puster kode til main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # Miljø: En midlertidig VM i GitHubs cloud
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build with Maven
+        run: mvn clean package # Skaber vores Spring Boot .jar fil
+
+  deploy:
+    needs: build-and-test # CD-sikkerhed: Kør kun hvis testene er grønne
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Cloud VM via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }} # Her bruger vi SSH-nøglen
+          script: |
+            echo "Logger ind på serveren..."
+            echo "Deployment færdig!"
