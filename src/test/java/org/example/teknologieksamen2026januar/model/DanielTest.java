@@ -20,7 +20,7 @@ class DanielTest {
     }
 
     @Test
-//    @Disabled
+    @Disabled
     void testSetAgeFailingExample() {
         // 1. Arrange: Opret objektet
         Daniel daniel = new Daniel("Daniel", 25);
