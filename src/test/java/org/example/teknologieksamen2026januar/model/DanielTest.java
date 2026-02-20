@@ -18,7 +18,7 @@ class DanielTest {
         assertEquals(forventetNavn, daniel.getName(), "Navnet skal matche constructoren");
         assertEquals(forventetAlder, daniel.getAge(), "Alderen skal matche constructoren");
     }
-
+//kdncklwd
     @Test
     @Disabled
     void testSetAgeFailingExample() {
